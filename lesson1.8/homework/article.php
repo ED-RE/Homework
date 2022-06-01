@@ -3,7 +3,7 @@ require_once __DIR__ . '/classes/DB.php';
 require_once __DIR__ . '/classes/View.php';
 
 try {
-    $tableNews = new DB('/../config.txt');
+    $tableNews = new DbHW('/../config.txt');
 } catch (Exception $e) {
     echo $e->getMessage();
 }
