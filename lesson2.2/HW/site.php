@@ -6,7 +6,7 @@ if (spl_autoload_register('autoloader') === false) {
 }
 spl_autoload_register('autoloader');
 
-$controller = new \Controllers\Controller();
+$controller = new \Controllers\AdminController();
 
 $controller->save();
 $controller->delete();
