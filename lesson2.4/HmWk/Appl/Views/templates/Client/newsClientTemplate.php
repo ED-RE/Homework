@@ -20,18 +20,15 @@ for ($i = 0; $i <= count($this->data) - 1; $i++) :
         ?>
         <b>
             <a href="http://homework/lesson2.4/HmWk/siteClient.php?ctrl=ClientController&act=<?php echo 'showOnlyOne' ?>&id=<?php echo $this->data[$i]->id ?>">
-            <?php echo $this->data[$i]->title ?>
+                <?php echo $this->data[$i]->title ?>
             </a>
         </b>
         <br>
         <?php echo mb_substr($this->data[$i]->content, 0, 100) . "..."; ?>
         <br><br>
         <?php
-        if (null === $this->data[$i]->getAuthor()[0]->author) {
-            echo 'Без автора';
-        } else {
-            echo $this->data[$i]->getAuthor()[0]->author;
-        } ?>
+        echo $this->data[$i]->getAuthor();
+        ?>
         <br>
         <hr>
     <?php

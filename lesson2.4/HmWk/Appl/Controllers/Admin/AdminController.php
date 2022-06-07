@@ -18,7 +18,7 @@ class AdminController extends BaseAdminController
 
     public function get3LastNews()
     {
-        foreach (Article::last3Article() as $key => $article) {
+        foreach (Article::get3LastArticle() as $key => $article) {
             $this->view->$key = $article;
         }
         $this->view->display('Admin/newsTemplate.php');

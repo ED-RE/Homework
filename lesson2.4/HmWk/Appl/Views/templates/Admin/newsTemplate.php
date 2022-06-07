@@ -14,7 +14,8 @@
     </head>
     <body>
 <h1 align="center" style="color:black">ADMIN PANEL</h1>
-<form action="http://homework/lesson2.4/HmWk/siteAdmin.php?ctrl=AdminController&act=<?php echo 'showCorrectArticle' ?>" method="post">
+<form action="http://homework/lesson2.4/HmWk/siteAdmin.php?ctrl=AdminController&act=<?php echo 'showCorrectArticle' ?>"
+      method="post">
     <button class="green" type="submit">Добавить новую запись</button>
     <br><br>
     <hr>
@@ -58,20 +59,19 @@ for ($i = 0; $i <= count($this->data) - 1; $i++) :
         <?php echo mb_substr($this->data[$i]->content, 0, 100) . "..."; ?>
         <br><br>
         <?php
-        if (null === $this->data[$i]->getAuthor()[0]->author) {
-            echo 'Без автора';
-        } else {
-            echo $this->data[$i]->getAuthor()[0]->author;
-        } ?>
+        echo $this->data[$i]->getAuthor();
+        ?>
         <br><br>
 
-        <form action="http://homework/lesson2.4/HmWk/siteAdmin.php?ctrl=AdminController&act=<?php echo 'showCorrectArticle' ?>" method="post">
+        <form action="http://homework/lesson2.4/HmWk/siteAdmin.php?ctrl=AdminController&act=<?php echo 'showCorrectArticle' ?>"
+              method="post">
             <input type="hidden" name="id" value="<?= $this->data[$i]->id ?>">
             <input type="hidden" name="authorID" value="<?= $this->data[$i]->authorID ?>">
             <button class="orange" type="submit">Редактировать</button>
         </form>
         <br>
-        <form action="http://homework/lesson2.4/HmWk/siteAdmin.php?ctrl=AdminController&act=<?php echo 'delete' ?>" method="post">
+        <form action="http://homework/lesson2.4/HmWk/siteAdmin.php?ctrl=AdminController&act=<?php echo 'delete' ?>"
+              method="post">
             <input type="hidden" name="id" value="<?= $this->data[$i]->id ?>">
             <input type="hidden" name="authorID" value="<?= $this->data[$i]->authorID ?>">
             <input type="hidden" name="delete" value="<?= 'tagDelete' ?>">

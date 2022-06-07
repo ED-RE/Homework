@@ -16,30 +16,19 @@ abstract class Model
         return $db->query($sql, [], static::class);
     }
 
-    /**
-     * @param int $id
-     * @return array|false
-     */
     public static function findById($id)
     {
         $db = new DbHW();
-        $sqlGetID = 'SELECT id FROM ' . static::TABLE . ' ORDER BY `id`';
-        $resultID = $db->query($sqlGetID, [], static::class);
-        $isId = false;
-        for ($i = 0; $i < count($resultID); $i++) {
-            if ((int)$resultID[$i]->id == $id) {
-                $isId = true;
-            }
-        }
-        if ($isId) {
-            $sqlID = 'SELECT * FROM ' . static::TABLE . ' WHERE `id` = :id';
-            return $db->query($sqlID, [':id' => $id], static::class);
+        $sqlID = 'SELECT * FROM ' . static::TABLE . ' WHERE `id` = :id';
+        if ($db->query($sqlID, [':id' => $id], static::class) !== false) {
+            $arrObjById = $db->query($sqlID, [':id' => $id], static::class);
         } else {
-//            return null;
-            return false;
+            throw new \Exception('Нет ничего по указанному id=' . $id);
+        }
+        if (array_key_exists(0, $arrObjById)) {
+            return $arrObjById[0];
         }
     }
-
 
     /**
      * @return void

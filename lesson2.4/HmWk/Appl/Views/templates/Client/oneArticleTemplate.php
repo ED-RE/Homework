@@ -11,19 +11,16 @@
 <b>
     <p>
         <?php
-        echo $this->data['oneArticle'][0]->title;
+        echo $this->data['oneArticle']->title;
         ?>
     </p>
 </b>
 <?php
-echo $this->data['oneArticle'][0]->content;
+echo $this->data['oneArticle']->content;
 ?>
 <br><br>
 <?php
-if (null === $this->data['oneArticle'][0]->getAuthor()[0]->author) {
-    echo 'Без автора';
-} else {
-    echo $this->data['oneArticle'][0]->getAuthor()[0]->author;
-} ?>
+echo $this->data['oneArticle']->getAuthor();
+?>
 </body>
 </html>
