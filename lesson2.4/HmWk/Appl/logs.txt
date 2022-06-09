@@ -1,0 +1,2 @@
+2022-06-09 10:44:28 Ошибка в БД: Запрос не может быть выполнен - SELECT * FRO newsss Находится в: C:\OpenServer\domains\Homework\lesson2.4\HmWk\Appl\DbHW.php На строке: 40
+2022-06-09 10:44:56 Ошибка в БД: Ошибка 404 - не найдено Находится в: C:\OpenServer\domains\Homework\lesson2.4\HmWk\Appl\Model.php На строке: 35

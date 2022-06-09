@@ -13,5 +13,15 @@ $ctrl = $_GET['ctrl'] ?? 'AdminController';
 $act = $_GET['act'] ?? 'showAll';
 $class = '\Controllers\Admin\\' . $ctrl;
 
-$ctrlClient = new $class;
-$ctrlClient->action($act);
+try {
+    $ctrlAdmin = new $class;
+    $ctrlAdmin->action($act);
+} catch (\Exceptions\DBException $error) {
+    echo 'Ошибка в БД: <br>' . $error->getMessage() . $error->getSql() . '<br>';
+    echo 'Находится в: ' . $error->getFile() . '<br>';
+    echo 'На строке: ' . $error->getLine();
+    die;
+} catch (\Exceptions\NotFoundRecordException $error) {
+    echo $error->getError404();
+    die;
+}

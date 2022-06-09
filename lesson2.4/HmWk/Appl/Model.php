@@ -16,17 +16,23 @@ abstract class Model
         return $db->query($sql, [], static::class);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     * @throws \Exceptions\DBException
+     * @throws \Exceptions\NotFoundRecordException
+     */
     public static function findById($id)
     {
         $db = new DbHW();
         $sqlID = 'SELECT * FROM ' . static::TABLE . ' WHERE `id` = :id';
         if ($db->query($sqlID, [':id' => $id], static::class) !== false) {
             $arrObjById = $db->query($sqlID, [':id' => $id], static::class);
-        } else {
-            throw new \Exception('Нет ничего по указанному id=' . $id);
         }
         if (array_key_exists(0, $arrObjById)) {
             return $arrObjById[0];
+        } else {
+            throw new \Exceptions\NotFoundRecordException();
         }
     }
 
@@ -84,11 +90,15 @@ abstract class Model
 
     /**
      * @return void
+     * @throws \Exceptions\DBException
+     * @throws \Exceptions\NotFoundRecordException
      */
     public function delete()
     {
         $db = new DbHW();
         $sqlDelete = 'DELETE FROM ' . static::TABLE . ' WHERE id=' . $_POST['id'];
-        $db->execute($sqlDelete);
+        if (!($db->execute($sqlDelete))) {
+            throw new \Exceptions\NotFoundRecordException();
+        }
     }
 }

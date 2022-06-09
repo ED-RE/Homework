@@ -23,7 +23,7 @@ class DbFive
         $sth = $this->dbh->prepare($sql);
         $res = $sth->execute($data);
         if (!$res) {
-            throw new DbException('Запрос не может быть выполнен');
+            throw new DbException($sql,'Запрос не может быть выполнен');
         }
         return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
     }

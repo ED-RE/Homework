@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../Appl/autoloadFive.php';
+require __DIR__ . '/../Applic/autoloadFive.php';
 spl_autoload_register('autoloader');
 
 $ex = new \Appl\DbException('Сломалась БД', 100);

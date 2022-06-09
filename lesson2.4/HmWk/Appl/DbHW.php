@@ -1,18 +1,26 @@
 <?php
 
+use Exceptions\DBException;
+
 class DbHW
 {
     protected $dbh;
 
+    /**
+     * @throws DBException
+     */
     public function __construct()
     {
-
-        $config = Config::getObject();
-        $this->dbh = new \PDO(
-            'mysql:host=' . $config->getHost() . ';dbname=' . $config->getDbName(),
-            $config->getUser(),
-            $config->getPassword()
-        );
+        try {
+            $config = Config::getObject();
+            $this->dbh = new \PDO(
+                'mysql:host=' . $config->getHost() . ';dbname=' . $config->getDbName(),
+                $config->getUser(),
+                $config->getPassword()
+            );
+        } catch (\PDOException) {
+            throw new DBException('', 'Ошибка подключения к БД');
+        }
     }
 
     /**
@@ -20,12 +28,17 @@ class DbHW
      * @param $data
      * @param $class
      * @return array|false
+     * @throws DBException
      */
     public function query($sql, $data, $class)
     {
 
         $query = $this->dbh->prepare($sql);
-        $query->execute($data);
+        try {
+            $query->execute($data);
+        } catch (\PDOException) {
+            throw new DBException($sql, 'Запрос не может быть выполнен - ');
+        }
         return $query->fetchAll(\PDO::FETCH_CLASS, $class);
     }
 
@@ -44,11 +57,17 @@ class DbHW
      * @param $sql
      * @param $params
      * @return bool
+     * @throws DBException
      */
     public function execute($sql, $params = [])
     {
         $sth = $this->dbh->prepare($sql);
-        return $sth->execute($params);
+        try {
+            return $sth->execute($params);
+        } catch (\PDOException) {
+            throw new DBException($sql, 'Запрос не может быть выполнен - ');
+        }
+
     }
 
     /**

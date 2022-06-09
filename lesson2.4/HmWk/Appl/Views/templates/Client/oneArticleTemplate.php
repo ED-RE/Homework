@@ -17,10 +17,8 @@
 </b>
 <?php
 echo $this->data['oneArticle']->content;
-?>
-<br><br>
-<?php
-echo $this->data['oneArticle']->getAuthor();
+echo '<br><br>';
+echo $this->data['oneArticle']->getAuthorName();
 ?>
 </body>
 </html>

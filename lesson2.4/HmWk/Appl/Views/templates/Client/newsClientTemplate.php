@@ -27,7 +27,7 @@ for ($i = 0; $i <= count($this->data) - 1; $i++) :
         <?php echo mb_substr($this->data[$i]->content, 0, 100) . "..."; ?>
         <br><br>
         <?php
-        echo $this->data[$i]->getAuthor();
+        echo $this->data[$i]->getAuthorName();
         ?>
         <br>
         <hr>

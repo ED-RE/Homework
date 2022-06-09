@@ -14,7 +14,7 @@
 
 <?php foreach ($this->articles as $article): ?>
     <h2>
-        <a href="/lesson2.5/Lsn/Appl/Controllers/?ctrl=ArticleFive&id="<?php echo $article->id ?> ">
+        <a href="/lesson2.5/Lsn/Applic/Controllers/?ctrl=ArticleFive&id="<?php echo $article->id ?> ">
         <?php echo $article->title; ?>
     </h2>
     </a>
