@@ -5,6 +5,8 @@ namespace Controllers\Admin;
 use Controllers\BaseAdminController;
 use Models\Article;
 use Models\Author;
+use SebastianBergmann\Timer\ResourceUsageFormatter;
+use SebastianBergmann\Timer\Timer;
 
 class AdminController extends BaseAdminController
 {
@@ -13,6 +15,8 @@ class AdminController extends BaseAdminController
         foreach (Article::findAll() as $key => $article) {
             $this->view->$key = $article;
         }
+        $this->view->assign('timer', new Timer());
+        $this->view->assign('resourceUsageFormatter', new ResourceUsageFormatter());
         $this->view->display('Admin/newsTemplate.php');
     }
 
@@ -21,6 +25,8 @@ class AdminController extends BaseAdminController
         foreach (Article::get3LastArticle() as $key => $article) {
             $this->view->$key = $article;
         }
+        $this->view->assign('timer', new Timer());
+        $this->view->assign('resourceUsageFormatter', new ResourceUsageFormatter());
         $this->view->display('Admin/newsTemplate.php');
     }
 
@@ -68,10 +74,12 @@ class AdminController extends BaseAdminController
     public function save()
     {
         if (isset($_POST['id']) && !empty($_POST['id'])) {
-            self::update();
+            $this->update();
+            //было раньше self::update(); - так делать нельзя!!!!!!
         }
         if (empty($_POST['id'])) {
-            self::insert();
+            $this->insert();
+            ////было раньше self::insert(); - так делать нельзя!!!!
         }
         self::showAll();
     }

@@ -51,6 +51,15 @@ for ($i = 0; $i <= count($this->data) - 1; $i++) :
             .orange {
                 background: #F7941E;
             }
+
+            footer {
+                padding: 10px 20px;
+                background: blanchedalmond;
+                color: black;
+                display: block;
+                position: absolute;
+                bottom: 0px;
+            }
         </style>
         <b>
             <?php echo $this->data[$i]->title ?>
@@ -82,5 +91,14 @@ for ($i = 0; $i <= count($this->data) - 1; $i++) :
     endif;
 endfor;
 ?>
+<footer>
+    <?php
+    $this->data['timer']->start();
+    foreach (range(0, 100000) as $i) {
+//    echo $i . '<br>';
+    }
+    print $this->data['resourceUsageFormatter']->resourceUsage($this->data['timer']->stop());
+    ?>
+</footer>
 </body>
 </html>

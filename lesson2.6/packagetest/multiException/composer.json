@@ -1,0 +1,22 @@
+{
+  "name": "multi-exception/composer-multi-exception",
+  "description": "Пробный пакет создания пакета composer",
+  "authors": [
+    {
+      "name": "hui.morzovii",
+      "email": "pidor@ctrlv.me"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.0"
+  },
+  "require-dev": {
+
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "multiException\\": "multiException/"
+    }
+  }
+}

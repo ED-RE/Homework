@@ -7,6 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Одна новость</title>
 </head>
+<style>
+    footer {
+        padding: 10px 20px;
+        background: blanchedalmond;
+        color: black;
+        display: block;
+        position: absolute;
+        bottom: 0px;
+    }
+
+    a {
+        color: #008EB0;
+    }
+</style>
 <body>
 <b>
     <p>
@@ -20,5 +34,14 @@ echo $this->data['oneArticle']->content;
 echo '<br><br>';
 echo $this->data['oneArticle']->getAuthorName();
 ?>
+<footer>
+    <?php
+    $this->data['timer']->start();
+    foreach (range(0, 100000) as $i) {
+//    echo $i . '<br>';
+    }
+    print $this->data['resourceUsageFormatter']->resourceUsage($this->data['timer']->stop());
+    ?>
+</footer>
 </body>
 </html>
