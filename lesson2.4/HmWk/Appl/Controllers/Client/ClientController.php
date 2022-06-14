@@ -11,7 +11,7 @@ class ClientController extends BaseClientController
 {
     public function showAll()
     {
-        foreach (Article::findAll() as $key => $article) {
+        foreach (Article::findAllGenerate() as $key => $article) {
             $this->view->$key = $article;
         }
         $this->view->assign('timer', new Timer());

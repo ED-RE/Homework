@@ -13,7 +13,7 @@
             background: blanchedalmond;
             color: black;
             display:block;
-            position:absolute;
+            /*position:absolute;*/
             bottom:0px;
         }
         a {

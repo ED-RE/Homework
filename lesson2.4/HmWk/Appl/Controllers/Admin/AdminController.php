@@ -3,6 +3,7 @@
 namespace Controllers\Admin;
 
 use Controllers\BaseAdminController;
+use Models\AdminDataTable;
 use Models\Article;
 use Models\Author;
 use SebastianBergmann\Timer\ResourceUsageFormatter;
@@ -18,6 +19,25 @@ class AdminController extends BaseAdminController
         $this->view->assign('timer', new Timer());
         $this->view->assign('resourceUsageFormatter', new ResourceUsageFormatter());
         $this->view->display('Admin/newsTemplate.php');
+    }
+
+    public function showALLSecond()
+    {
+        $article = new Article();
+        $functions = [
+            'title' => function (Article $article) {
+                return $article->title;
+            },
+            'trimmedText' => function (Article $article) {
+                return mb_strimwidth($article->content, 0, 100);
+            }
+        ];
+        $adminDataTable = new AdminDataTable(Article::findAll(), $functions);
+        $this->view->assign('AllValues', $adminDataTable->render());
+        foreach ($functions as $key => $value) {
+            $this->view->assign($key, $key);
+        }
+        $this->view->display('Admin/adminDataTable.php');
     }
 
     public function get3LastNews()

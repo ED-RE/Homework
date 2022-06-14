@@ -17,6 +17,16 @@ abstract class Model
     }
 
     /**
+     * @return Generator
+     */
+    public static function findAllGenerate()
+    {
+        $db = new DbHW();
+        $sql = 'SELECT * FROM ' . static::TABLE;
+        return $db->queryEach($sql, [], static::class);
+    }
+
+    /**
      * @param $id
      * @return mixed
      * @throws \Exceptions\DBException

@@ -46,6 +46,23 @@ class DbHW
      * @param $sql
      * @param $data
      * @param $class
+     * @return Generator
+     */
+    public function queryEach($sql, $data, $class)
+    {
+        $queryEach = $this->dbh->prepare($sql, array(\PDO::ATTR_CURSOR => \PDO::CURSOR_SCROLL));
+        $queryEach->execute($data);
+        $queryEach->setFetchMode(\PDO::FETCH_CLASS, $class);
+        while ($row = $queryEach->fetch()) {
+            yield $row;
+        }
+
+    }
+
+    /**
+     * @param $sql
+     * @param $data
+     * @param $class
      * @return array|false
      */
     public function queryForFindAll($sql, $data, $class)

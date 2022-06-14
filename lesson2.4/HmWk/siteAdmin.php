@@ -8,9 +8,9 @@ try {
 } catch (Exception $e) {
     echo $e->getMessage();
 }
-
 $ctrl = $_GET['ctrl'] ?? 'AdminController';
-$act = $_GET['act'] ?? 'showAll';
+//$act = $_GET['act'] ?? 'showAll'; // для showAll (старая админка, нормальная)
+$act = $_GET['act'] ?? 'showAllSecond'; // для отображения AdminTable по заданию 2.8
 $class = '\Controllers\Admin\\' . $ctrl;
 
 try {
