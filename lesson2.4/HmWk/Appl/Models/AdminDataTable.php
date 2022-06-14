@@ -3,7 +3,6 @@
 namespace Models;
 
 use Model;
-
 class AdminDataTable extends Model
 {
     protected $models;

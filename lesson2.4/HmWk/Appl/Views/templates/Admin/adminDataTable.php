@@ -8,7 +8,7 @@
     <title>AdminTable</title>
 </head>
 <table border="1">
-    <caption>Таблица ДЗ 2.8</caption>
+    <caption>Таблица Домашки 2.8</caption>
     <tr>
         <th><?= $this->data['title'] ?></th>
         <th><?= $this->data['trimmedText'] ?></th>
