@@ -2,7 +2,9 @@
 
 class AdminController extends Controller
 {
-
+    /**
+     * @return array
+     */
     protected function getAllFrameworks()
     {
         $frameworks = new Frameworks();
@@ -15,16 +17,26 @@ class AdminController extends Controller
         return $arr;
     }
 
+    /**
+     * @return void
+     */
     public function actionIndex()
     {
         $this->render('index', ['all' => $this->getAllFrameworks()]);
     }
 
+    /**
+     * @return void
+     */
     public function actionCorrect()
     {
         $this->render('correct');
     }
 
+    /**
+     * @return void
+     * @throws CDbException
+     */
     public function actionDelete()
     {
         $frameworks = new Frameworks();
@@ -35,6 +47,10 @@ class AdminController extends Controller
         $this->render('index', ['all' => $this->getAllFrameworks()]);
     }
 
+    /**
+     * @return void
+     * @throws Exception
+     */
     public function actionSave()
     {
         $frameworks = new Frameworks();

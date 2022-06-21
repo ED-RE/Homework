@@ -1061,3 +1061,13 @@ Stack trace:
 REQUEST_URI=/yiiTask/testdrive/index.php?r=admin/update
 HTTP_REFERER=http://homework/yiiTask/testdrive/index.php?r=admin/correct
 ---
+2022/06/21 15:29:58 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "inde". in C:\OpenServer\domains\Homework\yiiTask\yii\framework\web\CController.php:486
+Stack trace:
+#0 C:\OpenServer\domains\Homework\yiiTask\yii\framework\web\CController.php(270): CController->missingAction()
+#1 C:\OpenServer\domains\Homework\yiiTask\yii\framework\web\CWebApplication.php(282): CController->run()
+#2 C:\OpenServer\domains\Homework\yiiTask\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#3 C:\OpenServer\domains\Homework\yiiTask\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\OpenServer\domains\Homework\yiiTask\testdrive\index.php(6): CApplication->run()
+#5 {main}
+REQUEST_URI=/yiiTask/testdrive/index.php?r=admin/inde
+---
