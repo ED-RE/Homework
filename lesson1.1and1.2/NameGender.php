@@ -25,7 +25,9 @@ function namGend(string $a): string
     }
     if ((str_ends_with($a, 'я')) != true) {
         return 'Пол мужской';
-    } else { echo 'null';}
+    } else {
+        echo 'null';
+    }
 }
 
 echo namGend('Лариса');

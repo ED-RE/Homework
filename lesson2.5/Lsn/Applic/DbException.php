@@ -1,6 +1,6 @@
 <?php
 
-namespace Appl
+namespace Applic;
 
 use JetBrains\PhpStorm\Internal\LanguageLevelTypeAware;
 

@@ -2,7 +2,7 @@
 
 namespace Appl\Controllers;
 
-use Appl\Models\ArticleFive;
+//use Appl\Models\ArticleFive;
 
 class ArticleFive extends ControllerFive
 {

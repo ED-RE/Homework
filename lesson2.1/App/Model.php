@@ -17,7 +17,7 @@ abstract class Model
     public static function findById($id)
     {
         $db = new Db();
-        $sqlGetID = 'SELECT id FROM ' . static ::TABLE . ' ORDER BY `id`';
+        $sqlGetID = 'SELECT id FROM ' . static::TABLE . ' ORDER BY `id`';
         $resultID = $db->query($sqlGetID, [], static::class);
         $isId = false;
         for ($i = 0; $i < count($resultID); $i++) {

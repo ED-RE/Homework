@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7f51e13d-ea8c-4e0e-87e0-e8c61441fd57" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lesson1.1and1.2/NameGender.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lesson1.1and1.2/NameGender.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lesson1.9/models/classes/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lesson1.9/models/classes/DB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lesson2.1/App/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lesson2.1/App/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lesson2.1/App/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lesson2.1/App/Models/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lesson2.2/App/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lesson2.2/App/Models/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lesson2.2/HW/App/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lesson2.2/HW/App/Config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lesson2.3/HW/App/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lesson2.3/HW/App/Config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lesson2.5/Lsn/Applic/Controllers/ArticleFive.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lesson2.5/Lsn/Applic/Controllers/ArticleFive.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../lesson2.5/Lsn/Applic/DbException.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../lesson2.5/Lsn/Applic/DbException.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2Aq0M4PFCfg11i0k2Bm6wKz9TpG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7f51e13d-ea8c-4e0e-87e0-e8c61441fd57" name="Changes" comment="" />
+      <created>1655721756897</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655721756897</updated>
+      <workItem from="1655721758028" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -15,7 +15,7 @@ class Article extends Model
     public static function last3Article()
     {
         $db = new Db();
-        $sqlGetID = 'SELECT id FROM ' . static ::TABLE . ' ORDER BY `id`';
+        $sqlGetID = 'SELECT id FROM ' . static::TABLE . ' ORDER BY `id`';
         $resultID = $db->query($sqlGetID, [], static::class);
         $idLast1 = $resultID[count($resultID) - 1]->id;
         $idLast2 = $resultID[count($resultID) - 1]->id - 1;
