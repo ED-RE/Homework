@@ -7,18 +7,18 @@ class SiteController extends Controller
      */
     public function actions()
     {
-        return array(
+        return [
             // captcha action renders the CAPTCHA image displayed on the contact page
-            'captcha' => array(
+            'captcha' => [
                 'class' => 'CCaptchaAction',
                 'backColor' => 0xFFFFFF,
-            ),
+            ],
             // page action renders "static" pages stored under 'protected/views/site/pages'
             // They can be accessed via: index.php?r=site/page&view=FileName
-            'page' => array(
+            'page' => [
                 'class' => 'CViewAction',
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -29,12 +29,11 @@ class SiteController extends Controller
     {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
-        $frameworks = new Frameworks();
         $arr = [];
-        for ($i = 0; $i < count($frameworks->findAll()); $i++) {
-            $arr[$i]['id'] = $frameworks->findAll()[$i]->getAttribute('id');
-            $arr[$i]['title'] = $frameworks->findAll()[$i]->getAttribute('title');
-            $arr[$i]['content'] = $frameworks->findAll()[$i]->getAttribute('content');
+        for ($i = 0; $i < count(Framework::model()->findAll()); $i++) {
+            $arr[$i]['id'] = Framework::model()->findAll()[$i]->getAttribute('id');
+            $arr[$i]['title'] = Framework::model()->findAll()[$i]->getAttribute('title');
+            $arr[$i]['content'] = Framework::model()->findAll()[$i]->getAttribute('content');
         }
         $this->render('index', ['all' => $arr]);
     }
@@ -94,7 +93,6 @@ class SiteController extends Controller
             $model->attributes = $_POST['LoginForm'];
             // validate user input and redirect to the previous page if valid
             if ($model->validate() && $model->login())
-//                $this->redirect(Yii::app()->user->returnUrl);
                 $this->redirect(Yii::app()->createUrl('admin/index'));
         }
         // display the login form

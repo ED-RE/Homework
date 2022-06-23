@@ -11,7 +11,7 @@ try {
 
 $ctrl = $_GET['ctrl'] ?? 'AdminController';
 //$act = $_GET['act'] ?? 'showAll'; // для showAll (старая админка, нормальная)
-$act = $_GET['act'] ?? 'showAllSecond'; // для отображения AdminTable по заданию 2.8
+$act = $_GET['act'] ?? 'showAllSecond'; // для отображения AdminTable по заданию 2.7
 $class = '\Controllers\Admin\\' . $ctrl;
 
 try {
