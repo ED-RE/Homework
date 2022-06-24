@@ -1,9 +1,8 @@
 <!doctype html>
-
-<form
-        action="http://homework/yiiTask/testdrive/index.php?r=admin/<?= $_POST['action'] ?>"
-        method="post"
->
+<html lang="en">
+<body>
+<form action="http://homework/yiiTask/testdrive/index.php?r=admin/save"
+      method="post">
     <p><b>Поля для ввода:</b></p>
     Название фреймворка:<textarea name="title"></textarea>
     <br>
@@ -16,3 +15,5 @@
     <br>
     <hr>
 </form>
+</body>
+</html>

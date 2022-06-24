@@ -27,15 +27,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        // renders the view file 'protected/views/site/index.php'
-        // using the default layout 'protected/views/layouts/main.php'
-        $arr = [];
-        for ($i = 0; $i < count(Framework::model()->findAll()); $i++) {
-            $arr[$i]['id'] = Framework::model()->findAll()[$i]->getAttribute('id');
-            $arr[$i]['title'] = Framework::model()->findAll()[$i]->getAttribute('title');
-            $arr[$i]['content'] = Framework::model()->findAll()[$i]->getAttribute('content');
-        }
-        $this->render('index', ['all' => $arr]);
+        $this->render('index', ['allRecords' => Framework::model()->findAll()]);
     }
 
     /**
@@ -52,30 +44,6 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays the contact page
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm;
-        if (isset($_POST['ContactForm'])) {
-            $model->attributes = $_POST['ContactForm'];
-            if ($model->validate()) {
-                $name = '=?UTF-8?B?' . base64_encode($model->name) . '?=';
-                $subject = '=?UTF-8?B?' . base64_encode($model->subject) . '?=';
-                $headers = "From: $name <{$model->email}>\r\n" .
-                    "Reply-To: {$model->email}\r\n" .
-                    "MIME-Version: 1.0\r\n" .
-                    "Content-Type: text/plain; charset=UTF-8";
-
-                mail(Yii::app()->params['adminEmail'], $subject, $model->body, $headers);
-                Yii::app()->user->setFlash('contact', 'Thank you for contacting us. We will respond to you as soon as possible.');
-                $this->refresh();
-            }
-        }
-        $this->render('contact', array('model' => $model));
-    }
-
-    /**
      * Displays the login page
      */
     public function actionLogin()
@@ -87,16 +55,15 @@ class SiteController extends Controller
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
-
         // collect user input data
-        if (isset($_POST['LoginForm'])) {
-            $model->attributes = $_POST['LoginForm'];
+        if (isset($_POST[LoginForm::class])) {
+            $model->attributes = $_POST[LoginForm::class];
             // validate user input and redirect to the previous page if valid
             if ($model->validate() && $model->login())
                 $this->redirect(Yii::app()->createUrl('admin/index'));
         }
         // display the login form
-        $this->render('login', array('model' => $model));
+        $this->render('login', ['model' => $model]);
     }
 
     /**

@@ -24,24 +24,24 @@
 
 <div class="container" id="page">
 
-    <div id="header" >
+    <div id="header">
         <div id="logo" align="center"><?php echo CHtml::encode(Yii::app()->name); ?></div>
     </div><!-- header -->
 
     <div id="mainmenu">
         <?php $this->widget('zii.widgets.CMenu', [
-            'items' => array(
+            'items' => [
                 ['label' => 'Home', 'url' => array('/site/index')],
                 ['label' => 'For Admin', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest],
                 ['label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest],
                 ['label' => 'About', 'url' => array('/site/page', 'view' => 'about')],
-            ),
+            ],
         ]); ?>
     </div><!-- mainmenu -->
     <?php if (isset($this->breadcrumbs)): ?>
-        <?php $this->widget('zii.widgets.CBreadcrumbs', array(
+        <?php $this->widget('zii.widgets.CBreadcrumbs', [
             'links' => $this->breadcrumbs,
-        )); ?><!-- breadcrumbs -->
+        ]); ?><!-- breadcrumbs -->
     <?php endif ?>
 
     <?php echo $content; ?>

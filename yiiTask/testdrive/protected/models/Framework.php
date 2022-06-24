@@ -1,13 +1,12 @@
 <?php
 
 /**
- * @property int $id
+ * @property integer $id
  * @property string $title
  * @property string $content
  */
 class Framework extends CActiveRecord
 {
-
     /**
      * Для того чтобы validate() работал, объявляем правила проверки атрибутов.
      * Атрибуты представляют бизнес-данные и могут быть доступны как обычные свойства объекта или элементы массива.
@@ -41,9 +40,51 @@ class Framework extends CActiveRecord
     /**
      * @return string
      */
-    public function tableName()
+    public function tableName(): string
     {
-        return 'frameworks_new';
+        return 'framework_new';
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent(): string
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param $title
+     * @return void
+     */
+    public function setTitle($title): void
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @param $content
+     * @return void
+     */
+    public function setContent($content): void
+    {
+        $this->content = $content;
     }
 
 }

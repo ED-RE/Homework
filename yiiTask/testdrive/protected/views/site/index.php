@@ -1,14 +1,13 @@
 <?php
 /* @var $this SiteController
- * @var $all
+ * @var $allRecords
  */
 ?>
     <h1>Таблица Фреймворков</h1>
 <?php
-echo '<pre>';
-for ($i = 0; $i < count($all); $i++) {
-    echo '<b>' . $all[$i]['title'] . '<br>' . '</b>';
-    echo $all[$i]['content'] . '<br>';
+for ($i = 0; $i < count($allRecords); $i++) {
+    echo '<b>' . $allRecords[$i]->getTitle() . '<br>' . '</b>';
+    echo $allRecords[$i]->getContent() . '<br>';
     echo '<hr>';
 }
 ?>

@@ -2,14 +2,14 @@
 
 class AdminController extends Controller
 {
+    /**
+     * может быть allow/deny
+     * ? -любой пользователь
+     * @ -аутентифицированный пользователь
+     * * -любой пользователь, включая анонимного
+     */
     public function accessRules()
     {
-        /**
-         * может быть allow/deny
-         * ? -любой пользователь
-         * @ -аутентифицированный пользователь
-         * * -любой пользователь, включая анонимного
-         */
         return [
             [
                 'allow' => false,
@@ -25,28 +25,11 @@ class AdminController extends Controller
     }
 
     /**
-     * Забираем "чистые" данные в массив из таблицы frameworks_new
-     *
-     * @return array
-     */
-    protected function getAllRecords()
-    {
-        $arr = [];
-
-        for ($i = 0; $i < count(Framework::model()->findAll()); $i++) {
-            $arr[$i]['id'] = Framework::model()->findAll()[$i]->getAttribute('id');
-            $arr[$i]['title'] = Framework::model()->findAll()[$i]->getAttribute('title');
-            $arr[$i]['content'] = Framework::model()->findAll()[$i]->getAttribute('content');
-        }
-        return $arr;
-    }
-
-    /**
      * @return void
      */
     public function actionIndex()
     {
-        $this->render('index', ['all' => $this->getAllRecords()]);
+        $this->render('index', ['allRecords' => Framework::model()->findAll()]);
     }
 
     /**
@@ -64,10 +47,14 @@ class AdminController extends Controller
     public function actionDelete()
     {
         if (isset($_POST['id']) && !empty($_POST['id'])) {
-            $frameworkForDelete = Framework::model()->findByPk($_POST['id']);
+            if (Framework::model()->findByPk($_POST['id']) === null) {
+                throw new Exception('Такой записи нет');
+            } else {
+                $frameworkForDelete = Framework::model()->findByPk($_POST['id']);
+                $frameworkForDelete->delete();
+            }
         }
-        $frameworkForDelete->delete();
-        $this->render('index', ['all' => $this->getAllRecords()]);
+        $this->render('index', ['allRecords' => Framework::model()->findAll()]);
     }
 
     /**
@@ -78,15 +65,17 @@ class AdminController extends Controller
     {
         $frameworkForSave = new Framework();
         if (isset($_POST['id']) && !empty($_POST['id'])) {
-            $frameworkForSave = $frameworkForSave->findByPk($_POST['id']);
+            $frameworkForSave = Framework::model()->findByPk($_POST['id']) ?? new Framework();
         }
-        $frameworkForSave->title = $_POST['title'];
-        $frameworkForSave->content = $_POST['content'];
+        if (isset($_POST['title']) && !empty($_POST['title'])) {
+            $frameworkForSave->setTitle($_POST['title']);
+            $frameworkForSave->setContent($_POST['content']);
+            if (!($frameworkForSave->save())) {
+                throw new Exception('Ошибка сохранения');
+            }
+        }
 
-        if (!($frameworkForSave->save())) {
-            throw new Exception('Сохранение не удалось');
-        }
-        $this->render('index', ['all' => $this->getAllRecords()]);
+        $this->render('index', ['allRecords' => Framework::model()->findAll()]);
     }
 
 }

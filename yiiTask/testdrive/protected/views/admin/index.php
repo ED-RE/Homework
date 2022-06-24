@@ -1,32 +1,23 @@
 <?php
 /* @var $this AdminController
- * @var $all
+ * @var $allRecords
  */
 ?>
     <h1>Таблица Фреймворков (admin mode)</h1>
-    <form action="http://homework/yiiTask/testdrive/index.php?r=admin/correct"
-          method="post">
-        <input type="hidden" name="action" value="<?= 'save' ?>">
-        <button type="submit">Добавить новую запись</button>
-        <br><br>
-        <hr>
-    </form>
+    <a href="<?= Yii::app()->createUrl('admin/correct')?>">Добавить новую запись</a>
+    <br><hr>
 <?php
-for ($i = 0; $i < count($all); $i++) {
-    echo '<b>' . $all[$i]['title'] . '<br>' . '</b>';
-    echo $all[$i]['content'] . '<br>';
+foreach ($allRecords as $record) {
+    echo '<b>' . $record->getTitle() . '<br>' . '</b>';
+    echo $record->getContent() . '<br>';
     ?>
-    <form action="http://homework/yiiTask/testdrive/index.php?r=admin/correct"
-          method="post">
-        <input type="hidden" name="id" value="<?= $all[$i]['id'] ?>">
-        <input type="hidden" name="action" value="<?= 'save' ?>">
+    <form action="http://homework/yiiTask/testdrive/index.php?r=admin/correct" method="post">
+        <input type="hidden" name="id" value="<?= $record->getId() ?>">
         <button type="submit">Редактировать</button>
     </form>
     <br>
-    <form action="http://homework/yiiTask/testdrive/index.php?r=admin/delete"
-          method="post">
-        <input type="hidden" name="id" value="<?= $all[$i]['id'] ?>">
-        <input type="hidden" name="action" value="<?= 'delete' ?>">
+    <form action="http://homework/yiiTask/testdrive/index.php?r=admin/delete" method="post">
+        <input type="hidden" name="id" value="<?= $record->getId() ?>">
         <button type="submit">Delete</button>
     </form>
     <br>
